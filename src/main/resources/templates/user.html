@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head> </head>
+
+  <body>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>ROLE</th>
+      </tr>
+      <tr th:each="a : ${user}">
+        <td th:text="${a.id}"></td>
+        <td th:text="${a.name}"></td>
+        <td th:text="${a.role}"></td>
+        <td th:if="${a.role}=='admin'">Hallo admin</td>
+        <td th:unless="${a.role}=='admin'">Hallo user</td>
+
+        <td th:switch="${a.role}">
+          <p th:case="'admin'">Hallo Admin</p>
+          <p th:case="'user'">Hallo User</p>
+          <p th:case="*">Hallo Guest</p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

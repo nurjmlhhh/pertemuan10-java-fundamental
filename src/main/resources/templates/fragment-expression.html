@@ -1,0 +1,16 @@
+<!DOCTYPE html> 
+<html xmlns:th="http://www.thymeleaf.org"> 
+  <head> 
+    <meta charset="UTF-8" /> 
+    <title>Fragment Expressions</title> 
+  </head> 
+  <body> 
+    <header th:replace="~{fragments/component :: header}"></header> 
+    <hr /> 
+    <div th:fragment="section"> 
+      <h1>Ini adalah fragment section</h1> 
+    </div> 
+    <hr /> 
+    <footer th:insert="~{fragments/component :: footer}"></footer> 
+  </body> 
+</html> 

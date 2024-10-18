@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Product List</title>
+  </head>
+  <body>
+    <header th:replace="~{fragments/component :: header}"></header>
+    <h1>Daftar Produk</h1>
+    <table th:insert="~{fragments/component :: header}">
+      <tr>
+        <th>ID</th>
+        <th>Nama</th>
+        <th>Harga</th>
+      </tr>
+      <tr th:each="a : ${products}">
+        <td th:text="${a.id}"></td>
+        <td th:text="${a.name}"></td>
+        <td th:text="${a.price}"></td>
+      </tr>
+      <tr th:object="${product2}">
+        <td th:text="*{id}"></td>
+        <td th:text="*{name}"></td>
+        <td th:text="*{price}"></td>
+      </tr>
+    </table>
+
+    <h4>
+      <a th:href="@{message-expression}">Ke Halaman Message Expression</a>
+    </h4>
+
+    <footer th:insert="~{fragments/component :: footer}"></footer>
+  </body>
+</html>
